@@ -1,5 +1,5 @@
 """
-Let's calculate the area and perimeter of a rectangle.
+Let's_calculate_the_area_and_perimeter_of_a_rectangle.
 """
 Length = 10.0
 Width = 5.0
