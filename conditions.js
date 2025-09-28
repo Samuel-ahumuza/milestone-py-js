@@ -52,5 +52,31 @@ switch(weekDayNumber){
             console.log("Out of range");
 
 }
+LOOPS
+let x = 0;
+var x =0;
+while (x<=10){
+     if (x == 5) {
+         x++;
+         console.log(x);
+         continue;
+     }
+     console.log(x);
+     //x++;
+     x = x+1}
+ for(let myNumber = 0; myNumber <=10; myNumber++){
+     if (myNumber % 2 !==0){
+     console.log(myNumber);
+ }}
+
+function AddMarks(courseWorKmarks,examMarks, percentageofAttendance){
+    return (courseWorKmarks + examMarks) * percentageofAttendance;
+}
+let result = AddMarks(30, 20,0.2)
+console.log(result);
+console.log(finalMarks);
+
+// console.log(AddMarks(40,50,0.7));
+
 
 
