@@ -1,13 +1,3 @@
-// Name:Samuel Ahumuza
-// Access Number: B33227
-// Registration Number: M25B13/020
-// PROBLEM: The difficulty in quickly and accurately determining 
-// the final academic status (Pass/Fail)  for a large batch of student
-// scores against a fixed minimum standard, leading to slow reporting 
-// times and potential human error in compliance checking.
-// SOLUTION: Pass/Fail Compliance Checker.
-// The program instantly eliminates the manual burden of determining 
-// the final academic status of students in a given institution.
 
 // DATA
 const assignmentScores = [85,92,45,78,62,99,55,70,71,38,66,45,35,78,88];
@@ -63,4 +53,5 @@ console.log("--- Assignment Grading Summary ---");
 const detailedResults = processStatus(assignmentScores, PASSING_SCORE);
 for (const result of detailedResults) {
     console.log("Score: " + result.score + " -> Status: " + result.status);
+
 }
