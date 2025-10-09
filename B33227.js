@@ -1,4 +1,3 @@
-
 // DATA
 const assignmentScores = [85,92,45,78,62,99,55,70,71,38,66,45,35,78,88];
 const PASSING_SCORE = 60;
@@ -55,3 +54,4 @@ for (const result of detailedResults) {
     console.log("Score: " + result.score + " -> Status: " + result.status);
 
 }
+
