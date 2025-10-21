@@ -4,7 +4,7 @@ import time
 
 # --- Configuration ---
 # Set the path to your folder containing MP3 files
-music_dir = 'path/to/your/music/folder'  # **CHANGE THIS PATH**
+music_dir = 'path/to/your/music/folder'  
 
 # --- Setup ---
 pygame.mixer.init()
