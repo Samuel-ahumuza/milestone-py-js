@@ -1,0 +1,14 @@
+print ("Welcome_to_the_grading_system")
+Score = int(input("Enter score between 0 and 100:"))
+if 80 <= Score <= 100:
+    print("A")
+elif 70 <= Score <= 79:
+    print("B")
+elif 60 <= Score <= 69:
+    print("C")
+elif 50 <= Score <= 59:
+    print("D")
+elif 0 <= Score <= 49:
+    print("F")
+else:
+    print("Invalid score, please enter a score between 0 and 100")

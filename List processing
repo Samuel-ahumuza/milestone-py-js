@@ -1,0 +1,15 @@
+numbers = []
+print("\nplease enter 5 numbers:")
+for i in range(5):
+ number = int(input("Enter numbers"))
+ numbers.append(number)
+print(f"Numbers: {numbers}")
+Maximum = max(numbers)
+Minimum = min(numbers)
+Average = sum(numbers) %5
+print(f"Maximum: {Maximum}")
+print(f"Minimum: {Minimum}")
+print(f"Average: {Average}")
+sorted_numbers = sorted(numbers)
+print(f"sorted: {sorted_numbers}")
+    

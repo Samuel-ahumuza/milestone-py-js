@@ -1,0 +1,87 @@
+/*
+* PROBLEM: Automated Assignment Grader
+* The program needs to process a list of student scores (0-100),
+* assign a corresponding letter grade (A, B, C, D, F), count the
+* number of passing and failing grades, and display the results.
+*/
+
+// --- 1. DATA ---
+const assignmentScores = [85, 92, 45, 78, 62, 99, 55, 70, 81, 38];
+const PASSING_THRESHOLD = 60;
+
+// --- 2. CUSTOM FUNCTIONS ---
+
+/*
+* Function: calculateGrade
+* Justification: A function is used because the logic for assigning a letter grade
+* is complex and needs to be reused for every score in the list. This makes the
+* main code cleaner and easier to maintain.
+*/
+function calculateGrade(score) {
+    // Conditions: if/else if/else are used to check ranges sequentially.
+    // This is the most logical way to assign grades based on numerical thresholds.
+    if (score >= 90) {
+        return 'A';
+    } else if (score >= 80) {
+        return 'B';
+    } else if (score >= 70) {
+        return 'C';
+    } else if (score >= 60) {
+        return 'D';
+    } else {
+        return 'F';
+    }
+}
+
+/*
+* Function: processGrades
+* Justification: This is the main processing function. It encapsulates the core
+* logic, including the loop and the final output, making it easy to execute
+* the entire grading process with a single call.
+*/
+function processGrades(scoresArray, passMark) {
+    let results = [];
+    let passCount = 0;
+    let failCount = 0;
+
+    /*
+    * Loop: for...of
+    * Justification: A for...of loop is ideal here because it's the cleanest way
+    * to iterate over all elements in an array when you only need the value
+    * (the score) and not the index.
+    */
+    for (const score of scoresArray) {
+        const grade = calculateGrade(score);
+
+        // Condition: Simple if/else is used to determine pass/fail status
+        if (score >= passMark) {
+            passCount++;
+        } else {
+            failCount++;
+        }
+
+        results.push({
+            score: score,
+            grade: grade
+        });
+    }
+
+    // Display the final summary
+    console.log("--- Assignment Grading Summary ---");
+    console.log(`Passing Threshold: ${passMark}`);
+    console.log(`Total Assignments: ${scoresArray.length}`);
+    console.log(`Total Passed: ${passCount}`);
+    console.log(`Total Failed: ${failCount}`);
+    console.log("----------------------------------");
+    console.log("Detailed Results:");
+
+    return results;
+}
+
+// --- 3. EXECUTION ---
+const detailedResults = processGrades(assignmentScores, PASSING_THRESHOLD);
+
+// Loop: for...of is used again for clean output
+for (const result of detailedResults) {
+    console.log(`Score: ${result.score} -> Grade: ${result.grade}`);
+}
