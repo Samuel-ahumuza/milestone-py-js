@@ -1,0 +1,51 @@
+/**
+ * Encrypts or decrypts a string using a Caesar Cipher.
+ * @param {string} text - The text to cipher.
+ * @param {number} shift - The number of letters to shift by.
+ * A positive number encrypts, a negative number decrypts.
+ */
+function caesarCipher(text, shift) {
+  
+  // This inner function will handle shifting a single letter
+  function shiftLetter(char) {
+    const code = char.charCodeAt(0);
+
+    // Check if it's an uppercase letter (ASCII codes 65-90)
+    if (code >= 65 && code <= 90) {
+      // (code - 65) gives us a 0-25 index (A=0, B=1...)
+      // (% 26) makes it wrap around (e.g., 25 + 3 = 28 -> 28 % 26 = 2)
+      // (+ 26) handles negative shifts (e.g., 2 - 3 = -1 -> -1 + 26 = 25)
+      // We add 65 back to get the new ASCII code
+      let shiftedCode = ((((code - 65) + shift) % 26) + 26) % 26 + 65;
+      return String.fromCharCode(shiftedCode);
+    }
+    
+    // Check if it's a lowercase letter (ASCII codes 97-122)
+    if (code >= 97 && code <= 122) {
+      let shiftedCode = ((((code - 97) + shift) % 26) + 26) % 26 + 97;
+      return String.fromCharCode(shiftedCode);
+    }
+
+    // If it's not a letter (like ' ', '!', ','), return it unchanged
+    return char;
+  }
+
+  // 1. Split the text into an array of individual characters
+  // 2. Run each character through our shiftLetter function
+  // 3. Join the resulting array of characters back into a string
+  return text.split('').map(shiftLetter).join('');
+}
+
+// --- How to use it ---
+
+const mySecretMessage = "This is a secret message!";
+const myShift = 7;
+
+// Encrypt the message
+const encrypted = caesarCipher(mySecretMessage, myShift);
+console.log("Original: ", mySecretMessage);
+console.log("Encrypted:", encrypted);
+
+// To decrypt, just use a negative shift
+const decrypted = caesarCipher(encrypted, -myShift);
+console.log("Decrypted:", decrypted);
