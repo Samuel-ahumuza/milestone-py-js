@@ -1,0 +1,34 @@
+import time
+
+def set_console_reminder():
+    """
+    Sets a simple reminder that prints to the console after a delay.
+    """
+    message = input("What do you want to be reminded of? ")
+    
+    while True:
+        try:
+            minutes = float(input("In how many minutes? "))
+            if minutes <= 0:
+                print("Please enter a positive number of minutes.")
+                continue
+            break
+        except ValueError:
+            print("Invalid input. Please enter a number (e.g., 1.5 for 90 seconds).")
+
+    seconds = minutes * 60
+    
+    print(f"\nReminder set! I will remind you about: '{message}' in {minutes} minutes.")
+    print("Waiting...")
+    
+    # Pause the script for the specified duration
+    time.sleep(seconds)
+    
+    # Print the reminder
+    print("\n" + "*" * 20)
+    print(f"*** REMINDER ***")
+    print(f"{message}")
+    print("*" * 20)
+
+if __name__ == "__main__":
+    set_console_reminder()
